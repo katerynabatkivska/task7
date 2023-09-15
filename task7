@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dropdown Lists Example</title>
+</head>
+<body>
+  <select name="country" id="country">
+    <option value="ger">Germany</option>
+    <option value="usa">USA</option>
+    <option value="ukr">Ukraine</option>
+  </select>
+  <select name="cities" id="cities"></select>
+  <p id="result"></p>
+
+  <script>
+    const countrySelect = document.getElementById('country');
+    const citySelect = document.getElementById('cities');
+    const resultParagraph = document.getElementById('result');
+
+    const citiesData = {
+      ger: ['Berlin', 'Hamburg', 'Munich'],
+      usa: ['New York', 'Los Angeles', 'Chicago'],
+      ukr: ['Kyiv', 'Kharkiv', 'Lviv'],
+    };
+
+    function populateCities() {
+      const selectedCountry = countrySelect.value;
+      citySelect.innerHTML = '';
+      
+      citiesData[selectedCountry].forEach(function(city) {
+        const option = document.createElement('option');
+        option.value = city;
+        option.textContent = city;
+        citySelect.appendChild(option);
+      });
+    }
+
+    countrySelect.addEventListener('change', populateCities);
+
+    populateCities(); 
+
+    countrySelect.addEventListener('change', function() {
+      resultParagraph.textContent = `Країна: ${countrySelect.options[countrySelect.selectedIndex].text}`;
+    });
+
+    citySelect.addEventListener('change', function() {
+      resultParagraph.textContent += `, Місто: ${citySelect.options[citySelect.selectedIndex].text}`;
+    });
+  </script>
+</body>
+</html>
