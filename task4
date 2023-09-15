@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Selected Option</title>
+</head>
+<body>
+  <select id="dropdown">
+    <option value="option1">Peter</option>
+    <option value="option2">John</option>
+    <option value="option3">Alise</option>
+    <option value="option4">Alex</option>
+  </select>
+  <button onclick="deleteSelectedOption()">Delete Selected Option</button>
+
+  <script>
+    function deleteSelectedOption() {
+      const dropdown = document.getElementById('dropdown');
+      const selectedOption = dropdown.options[dropdown.selectedIndex];
+      
+      if (selectedOption) {
+        dropdown.removeChild(selectedOption);
+      }
+    }
+  </script>
+</body>
+</html>
