@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling Example</title>
+  <style>
+    body {
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <button id="button1">Change Background to Blue</button>
+  <button id="button2">Change Background to Pink</button>
+  <button id="button3">Press and Hold for Brown</button>
+  <a href="#" id="link">Hover for Yellow</a>
+
+  <script>
+    const button1 = document.getElementById('button1');
+    const button2 = document.getElementById('button2');
+    const button3 = document.getElementById('button3');
+    const link = document.getElementById('link');
+    const body = document.body;
+
+    button1.addEventListener('click', function() {
+      body.style.backgroundColor = 'blue';
+    });
+
+    button2.addEventListener('dblclick', function() {
+      body.style.backgroundColor = 'pink';
+    });
+
+    let holdTimer;
+    button3.addEventListener('mousedown', function() {
+      body.style.backgroundColor = 'brown';
+      holdTimer = setTimeout(function() {
+        body.style.backgroundColor = 'white';
+      }, 1000);
+    });
+
+    button3.addEventListener('mouseup', function() {
+      clearTimeout(holdTimer);
+      body.style.backgroundColor = 'white';
+    });
+
+    link.addEventListener('mouseenter', function() {
+      body.style.backgroundColor = 'yellow';
+    });
+
+    link.addEventListener('mouseleave', function() {
+      body.style.backgroundColor = 'white';
+    });
+  </script>
+</body>
+</html>
