@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resize Event Example</title>
+</head>
+<body>
+  <p>Width: <span id="width"></span></p>
+  <p>Height: <span id="height"></span></p>
+
+  <script>
+    function updateWindowSize() {
+      const widthElement = document.getElementById('width');
+      const heightElement = document.getElementById('height');
+      
+      widthElement.textContent = window.innerWidth;
+      heightElement.textContent = window.innerHeight;
+    }
+
+    window.addEventListener('resize', updateWindowSize);
+    
+    
+    window.addEventListener('load', updateWindowSize);
+  </script>
+</body>
+</html>
