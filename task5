@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Interaction Example</title>
+</head>
+<body>
+  <button id="myButton">Press Me</button>
+
+  <script>
+    const button = document.getElementById('myButton');
+
+    button.addEventListener('click', function() {
+      alert('I was pressed!');
+    });
+
+    button.addEventListener('mouseenter', function() {
+      alert('Mouse on me!');
+    });
+
+    button.addEventListener('mouseleave', function() {
+      alert('Mouse is not on me!');
+    });
+  </script>
+</body>
+</html>
